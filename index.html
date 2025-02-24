@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fairlane</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script> <!-- Include PDF.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <div id="leftPanel">
+            <div class="card">
+                <h2 id="sourceTitle">Source Documents</h2>
+                <ul id="documents"></ul> 
+            </div>
+        </div>
+        <div id="mainContent">
+            <h1>Fairlane</h1>
+            <input type="text" id="queryInput" placeholder="Enter your query here...">
+            <button id="submitButton">Submit</button>
+            <div id="loadingIndicator" style="display: none;">
+                <div class="spinner"></div> 
+                <p>Loading...</p> 
+            </div>
+            <div id="responseDisplay"></div>
+            <div id="sourceInfo" style="display: none;">
+                <h4>Source Document</h4>
+                <p>Filename: <span id="filename"></span></p> 
+                <p>Page: <span id="pageNumber"></span></p>
+            </div>
+            <div id="pdfViewer" style="display: none;">
+                <div id="zoomControls">
+                    <label for="zoomSlider">Zoom:</label>
+                    <input type="range" id="zoomSlider" min="0.1" max="2" step="0.1" value="1">
+                    <span id="currentZoom">100%</span>
+                </div>
+                <div id="canvasContainer">
+                    <canvas id="pdfCanvas"></canvas>
+                </div>
+                <div id="pageNavigation">
+                    <button id="prevPage">Previous</button>
+                    <div id="gotoDiv">   
+                        <span id="pageInfo">Page: <span id="currentPage">1</span></span>
+                        <input id="pageInput" min="1" placeholder="pg #">
+                        <button id="goToPage">Go</button>
+                    </div>
+                    <button id="nextPage">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js?v=1.0"></script> 
+</body>
+</html>
