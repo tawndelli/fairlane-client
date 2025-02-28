@@ -4,7 +4,13 @@ body {
     margin: 0;
     padding: 20px;
     display: flex;
-    height: 100vh;
+    height: 100%;
+    width: calc(100vw - 60px);
+}
+
+.disabled {
+    pointer-events: none; /* Prevent all interactions */
+    opacity: 0.5; /* Make the page look disabled */
 }
 
 #app {
@@ -205,6 +211,10 @@ button:hover {
     margin-bottom: 5px;
 }
 
+#zoomSlider{
+    margin-bottom: 0px !important;
+}
+
 #gotoDiv {
     display: flex;
     align-items: center;
@@ -214,4 +224,44 @@ button:hover {
 #gotoDiv input {
     margin-bottom: 0 !important;
     width: 35px;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reduce padding for mobile */
+    }
+
+    #app {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 10px; /* Reduce padding */
+    }
+
+    #leftPanel {
+        width: 100%; /* Full width on mobile */
+        border-right: none; /* Remove right border */
+        border-bottom: 1px solid #ccc; /* Add bottom border for separation */
+    }
+
+    #mainContent {
+        padding: 10px; /* Reduce padding */
+    }
+
+    #documents li {
+        font-size: 1rem; /* Increase font size for better readability */
+        padding: 15px; /* Increase padding for touch targets */
+    }
+
+    #responseDisplay, #sourceInfo, #pdfViewer {
+        margin-top: 10px; /* Add margin for spacing */
+    }
+
+    #pageNavigation, #zoomControls, #gotoDiv {
+        flex-direction: column; /* Stack controls vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    #zoomSlider {
+        width: 100%; /* Full width for the slider */
+    }
 }
